@@ -172,7 +172,7 @@ class Projection extends Model
      */
     public function getEndDateAttribute(): Carbon
     {
-        return $this->start_date->add($this->period)->subSecond();
+        return $this->start_date->add((int)$this->period)->subSecond();
     }
 
     /**
