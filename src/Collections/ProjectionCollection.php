@@ -109,8 +109,8 @@ class ProjectionCollection extends Collection
 //        $endDate->floorUnit($periodType, $periodQuantity);
 
         if (in_array($periodType, ['week', 'weeks'])) {
-            $startDate = $startDateInitial->copy()->startOfWeek(app(TimeSeries::class)->getFirstWorkingDayOfWeek());
-            $endDate = $endDateInitial->copy()->startOfWeek(app(TimeSeries::class)->getFirstWorkingDayOfWeek());
+            $startDate = $startDateInitial->copy()->startOfWeek((int)app(TimeSeries::class)->getFirstWorkingDayOfWeek());
+            $endDate = $endDateInitial->copy()->startOfWeek((int)app(TimeSeries::class)->getFirstWorkingDayOfWeek());
         }
 
         if ($startDate->greaterThanOrEqualTo($endDate)) {

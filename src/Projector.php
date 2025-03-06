@@ -205,7 +205,7 @@ class Projector
         $startDate = $this->projectedModel->created_at->floorUnit($periodType, $quantity);
 
         if (in_array($periodType, ['week', 'weeks'])) {
-            $startDate->startOfWeek(app(TimeSeries::class)->getFirstWorkingDayOfWeek());
+            $startDate->startOfWeek((int)app(TimeSeries::class)->getFirstWorkingDayOfWeek());
         }
 
         return $startDate;
