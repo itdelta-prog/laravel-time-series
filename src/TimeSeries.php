@@ -42,7 +42,7 @@ class TimeSeries
     {
         [$quantity, $periodType] = Str::of($period)->split('/[\s]+/');
 
-        $startDate = $date->copy()->floorUnit($periodType, (float)$quantity);
+        $startDate = $date->copy()->floorUnit($periodType, (int)$quantity);
         // $startDate = $date->copy()->startOf($periodType, $quantity);
 
         if (in_array($periodType, ['week', 'weeks'])) {

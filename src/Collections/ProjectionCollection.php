@@ -102,8 +102,8 @@ class ProjectionCollection extends Collection
         [$periodQuantity, $periodType] = Str::of($period)->split('/[\s]+/');
 
         // BUG в библиотеке Carbon? Неправильно округляет недели
-        $startDate = $startDateInitial->copy()->startOf($periodType, $periodQuantity);
-        $endDate = $endDateInitial->copy()->startOf($periodType, $periodQuantity);
+        $startDate = $startDateInitial->copy()->floorUnit($periodType, (int)$periodQuantity);
+        $endDate = $endDateInitial->copy()->floorUnit($periodType, (int)$periodQuantity);
 
 //        $startDate->floorUnit($periodType, $periodQuantity);
 //        $endDate->floorUnit($periodType, $periodQuantity);
